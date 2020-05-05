@@ -1,3 +1,13 @@
 #button-keranjang {
     filter: brightness(0) invert(1);
 }
+
+#container-user-akses {
+    max-width: 60%;
+}
+
+@media (max-width: 767.98px) {
+    #container-user-akses {
+        max-width: 80%;
+    }
+}
