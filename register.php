@@ -1,3 +1,11 @@
+<?php
+
+    if($user_id){
+        header("location: ".BASE_URL);
+    }
+
+?>
+
 <div class="container pt-4" id="container-user-akses">
 
     <form action="<?php echo BASE_URL."proses_register.php"; ?>" method="POST">
