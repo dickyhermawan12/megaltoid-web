@@ -1,5 +1,7 @@
 <?php
     session_start();
+
+    include_once("./function/koneksi.php");
     include_once("./function/helper.php");
     $page = isset($_GET['page']) ? $_GET['page'] : false;
     $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
@@ -64,7 +66,7 @@
                         if (file_exists($filename)){
                             include_once($filename);
                         } else {
-                            echo "<p class='alert alert-warning mt-3' role='alert'>Maaf, file tersebut tidak ada di dalam sistem!</p>";
+                            echo "<div class='alert alert-warning mt-3' role='alert'>Maaf, file tersebut tidak ada di dalam sistem!</div>";
                         }
                     ?>
                 </div>
