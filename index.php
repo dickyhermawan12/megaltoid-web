@@ -66,7 +66,7 @@
                         if (file_exists($filename)){
                             include_once($filename);
                         } else {
-                            echo "<div class='alert alert-warning mt-3' role='alert'>Maaf, file tersebut tidak ada di dalam sistem!</div>";
+                            include_once("main.php");
                         }
                     ?>
                 </div>
