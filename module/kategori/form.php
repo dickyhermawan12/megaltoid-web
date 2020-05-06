@@ -8,33 +8,49 @@
 
     if($kategori_id){
         $queryKategori = mysqli_query($koneksi, "SELECT * FROM kategori WHERE kategori_id='$kategori_id'");
-        $row = mysqli_fetch_assoc($queryKategori);
+        $rowKategori = mysqli_fetch_assoc($queryKategori);
 
-        $kategori = $row['kategori'];
-        $status = $row['status'];
+        $kategori = $rowKategori['kategori'];
+        $status = $rowKategori['status'];
         $button = "Update";
     }
 
 ?>
 
-<form action="<?php echo BASE_URL."module/kategori/action.php?kategori_id=$kategori_id"; ?>" method="POST">
+<?php
+	if($kategori_id){
+		echo "<h4 class='mt-3 text-center bg-secondary text-white py-3 rounded'>Update Kategori</h4>";
+	} else {
+		echo "<h4 class='mt-3 text-center bg-secondary text-white py-3 rounded'>Tambah Kategori</h4>";
+	}
+?>
 
-    <div class="element-form">
-        <label>Kategori</label>
-        <span><input type="text" name="kategori" value="<?php echo $kategori; ?>" /></span>
+<form action="<?php echo BASE_URL."module/kategori/action.php?kategori_id=$kategori_id"; ?>" method="POST" class="mt-3">
+
+    <div class="form-group">
+        <label for="inputKategori">Kategori</label>
+        <input type="text" class="form-control" id="inputKategori" name="kategori" value="<?php echo $kategori; ?>">
     </div>
 
-    <div class="element-form">
-        <label>Status</label>
-        <span>
-            <input type="radio" name="status" value="on" <?php if($status == "on"){echo "checked='true'"; } ?> /> On
-            <input type="radio" name="status" value="off" <?php if($status == "off"){echo "checked='true'"; } ?> /> Off
-        </span>
+    <div class="row">
+      <legend class="col-form-label col-sm-1 pt-0">Status</legend>
+      <div class="col-sm-10">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="status" id="radioStatusOn" value="on" <?php if($status == "on" || $status == ""){ echo "checked='true'"; } ?>>
+          <label class="form-check-label" for="radioStatusOn">
+            On
+          </label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="status" id="radioStatusOff" value="off" <?php if($status == "off"){ echo "checked='true'"; } ?>>
+          <label class="form-check-label" for="radioStatusOff">
+            Off
+          </label>
+        </div>
+      </div>
     </div>
 
-    <div class="element-form">
-        <span><input type="submit" name="button" value="<?php echo $button; ?>" /></span>
-    </div>
+    <button type="submit" class="form-group btn btn-secondary" name="button" value="<?php echo $button; ?>"><?php echo $button; ?></button>
 
 
 
