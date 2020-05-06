@@ -21,7 +21,7 @@
                 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
                     <div class="container">
                         <a class="navbar-brand" href="<?php echo BASE_URL."index.php"; ?>">Megaltoid</a>
-                        <a class="nav-item mr-3" href="<?php echo BASE_URL."index.php?page=keranjang"; ?>">
+                        <a class="nav-item mr-auto ml-2 border-left pl-3" href="<?php echo BASE_URL."index.php?page=keranjang"; ?>">
                             <img src="<?php echo BASE_URL."./images/png/put-in-cart.png"; ?>" width=30px alt="cart" id="button-keranjang">
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
                                          <a href='".BASE_URL."index.php?page=register'>Register</a>";
                                 }
                             ?>
-                            <ul class="navbar-nav">
+                            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?php echo BASE_URL."index.php?page=login"; ?>">Login</a>
                                 </li>
@@ -49,7 +49,6 @@
                         </div>
                     </div>
                 </nav>
-
             </header>
 
             <main>

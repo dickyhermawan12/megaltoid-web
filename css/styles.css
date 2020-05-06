@@ -11,3 +11,10 @@
         max-width: 80%;
     }
 }
+
+.notif {
+    background: #dc3545;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
