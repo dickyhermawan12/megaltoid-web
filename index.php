@@ -11,7 +11,7 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL."css/bootstrap/bootstrap.min.css"; ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL."css/styles.css"; ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL."css/style.css"; ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>megaltoid | toko merch</title>
     </head>
@@ -79,7 +79,7 @@
             </footer>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="<?php echo BASE_URL."js/jquery-3.4.1.slim.min.js"; ?>"></script>
         <script src="<?php echo BASE_URL."js/bootstrap.bundle.min.js"; ?>"></script>
     </body>
 
