@@ -27,33 +27,33 @@
 
         ?>
 
-        <h2 class="text-center">Sign In</h2>
+        <h2 class="text-center">Sign Up</h2>
 
-        <div class="form-group element-form">
+        <div class="form-group">
             <label for="inputNama">Nama Lengkap</label>
             <input type="text" class="form-control" id="inputNama" name="nama_lengkap" value="<?php echo $nama_lengkap; ?>">
         </div>
-        <div class="form-group element-form">
+        <div class="form-group">
             <label for="inputEmail">Alamat Email</label>
             <input type="email" class="form-control" id="inputEmail" name="email" value="<?php echo $email; ?>">
         </div>
-        <div class="form-group element-form">
+        <div class="form-group">
             <label for="inputNoHP">Nomor Telepon</label>
             <input type="text" class="form-control" id="inputNoHP" name="phone" value="<?php echo $phone; ?>">
         </div>
-        <div class="form-group element-form">
+        <div class="form-group">
             <label for="inputAlamat">Alamat</label>
             <textarea class="form-control" id="inputAlamat" name="alamat"><?php echo $alamat; ?></textarea>
         </div>
-        <div class="form-group element-form">
+        <div class="form-group">
             <label for="inputPassword">Password</label>
             <input type="password" class="form-control" id="inputPassword" name="password">
         </div>
-        <div class="form-group element-form">
+        <div class="form-group">
             <label for="inputRePassword">Re-type Password</label>
             <input type="password" class="form-control" id="inputRePassword" name="re_password">
         </div>
-        <div class="form-group element-form">
+        <div class="form-group">
             <button type="submit" class="btn btn-danger" value="register">Submit</button>
         </div>
 

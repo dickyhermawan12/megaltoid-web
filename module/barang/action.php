@@ -1,6 +1,6 @@
 <?php
-    include_once("../../function/koneksi.php");   
-    include_once("../../function/helper.php");   
+    include("../../function/koneksi.php");   
+    include("../../function/helper.php");   
      
     $nama_barang = $_POST['nama_barang'];
     $kategori_id = $_POST['kategori_id'];
