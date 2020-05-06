@@ -15,10 +15,12 @@
             $notif = isset($_GET['notif']) ? $_GET['notif'] : false;
 
             if($notif == true){
-                echo "<div class='notif'>Maaf, email atau password yang kamu masukkan tidak cocok</div>";
+                echo "<div class='alert alert-warning' role='alert'>Maaf, email atau password yang kamu masukkan tidak cocok</div>";
             }
         
         ?>
+
+        <h2 class="text-center">Log In</h2>
 
         <div class="form-group element-form">
             <label for="inputEmail">Alamat Email</label>

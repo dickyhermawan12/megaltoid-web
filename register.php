@@ -18,14 +18,16 @@
             $alamat = isset($_GET['alamat']) ? $_GET['alamat'] : false;
 
             if($notif == "require") {
-                echo "<div class='notif'>Ada yang kurang, silakan lengkapi formnya dulu ya</div>";
+                echo "<div class='alert alert-warning' role='alert'>Ada yang kurang, silakan lengkapi formnya dulu ya</div>";
             } else if($notif == "password"){
-                echo "<div class='notif'>Password yang anda masukkan tidak sama, masukkan lagi</div>";
+                echo "<div class='alert alert-warning' role='alert'>Password yang anda masukkan tidak sama, masukkan lagi</div>";
             } else if($notif == "email"){
-                echo "<div class='notif'>Email yang anda masukkan sudah digunakan, masukkan lagi</div>";
+                echo "<div class='alert alert-warning' role='alert'>Email yang anda masukkan sudah digunakan, masukkan lagi</div>";
             }
 
         ?>
+
+        <h2 class="text-center">Sign In</h2>
 
         <div class="form-group element-form">
             <label for="inputNama">Nama Lengkap</label>

@@ -28,23 +28,28 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <?php
-                                if($user_id){
-                                    echo "Hi <b>$nama</b>, 
-                                          <a href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=list'>My Profile</a>
-                                          <a href='".BASE_URL."logout.php'>Logout</a>";
-                                }else{
-                                    echo "<a href='".BASE_URL."index.php?page=login'>Login</a>
-                                         <a href='".BASE_URL."index.php?page=register'>Register</a>";
-                                }
-                            ?>
                             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo BASE_URL."index.php?page=login"; ?>">Login</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo BASE_URL."index.php?page=register"; ?>">Register</a>
-                                </li>
+                                <?php
+                                    if($user_id){
+                                        echo "<li class='nav-item'>
+                                            <a class='nav-link disabled text-white mr-3' href='#'>Hi, <b>$nama</b></a>
+                                            </li>
+                                            <li class='nav-item'>
+                                            <a class='nav-link' href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=list'>My Profile</a>
+                                            </li>
+                                            <li class='nav-item'>
+                                            <a class='nav-link' href='".BASE_URL."logout.php'>Logout</a>
+                                            </li>";
+                                    }else{
+                                        echo "<li class='nav-item'>
+                                            <a class='nav-link' href='".BASE_URL."index.php?page=login'>Login</a>
+                                            </li>
+                                            <li class='nav-item'>
+                                            <a class='nav-link' href='".BASE_URL."index.php?page=register'>Register</a>
+                                            </li>";
+                                            
+                                    }
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -59,7 +64,7 @@
                         if (file_exists($filename)){
                             include_once($filename);
                         } else {
-                            echo "<p class='mt-3'>Maaf, file tersebut tidak ada di dalam sistem!</p>";
+                            echo "<p class='alert alert-warning mt-3' role='alert'>Maaf, file tersebut tidak ada di dalam sistem!</p>";
                         }
                     ?>
                 </div>
