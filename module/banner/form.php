@@ -5,7 +5,7 @@
     $banner = "";
     $link = "";
     $gambar = "";
-	$keterangan_gambar = "";
+	  $keterangan_gambar = "";
     $status = "";
     $button = "Add";
     

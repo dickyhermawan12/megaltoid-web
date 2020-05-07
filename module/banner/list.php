@@ -23,9 +23,9 @@
         while($rowBanner=mysqli_fetch_array($queryBanner)){
             echo "<tr>
 					<th scope='row'>$no</td>
+                    <td>$rowBanner[banner]</td>
                     <td><a target='blank' href='".BASE_URL."$rowBanner[link]'>$rowBanner[link]</a>
                     </td>
-                    <td>$rowBanner[status]</td>
 					<td>$rowBanner[status]</td>
 					<td><a href='".BASE_URL."index.php?page=my_profile&module=banner&action=form&banner_id=$rowBanner[banner_id]'>Edit</a>
 					</td>
