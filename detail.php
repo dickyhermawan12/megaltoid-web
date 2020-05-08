@@ -29,9 +29,9 @@
                 <div class="col">
                     <?php
                         if($row['stok']>1){
-                            echo "<a href='".BASE_URL."index.php?page=detail&barang_id=$row[barang_id]' class='btn btn-danger'>Tambah ke Keranjang</a>";
+                            echo "<a href='".BASE_URL."tambah_keranjang.php?barang_id=$row[barang_id]' class='btn btn-danger'>Tambah ke Keranjang</a>";
                         } else {
-                            echo "<a href='".BASE_URL."index.php?page=detail&barang_id=$row[barang_id]' class='btn btn-danger disabled'>Tambah ke Keranjang</a>";
+                            echo "<a href='".BASE_URL."tambah_keranjang.php?barang_id=$row[barang_id]' class='btn btn-danger disabled'>Tambah ke Keranjang</a>";
                         }
                     ?>
                 </div>

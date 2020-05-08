@@ -3,12 +3,14 @@
 
     include_once("./function/koneksi.php");
     include_once("./function/helper.php");
+
     $page = isset($_GET['page']) ? $_GET['page'] : false;
     $kategori_id = isset($_GET['kategori_id']) ? $_GET['kategori_id'] : false;
+    
     $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
     $nama = isset($_SESSION['nama']) ? $_SESSION['nama'] : false;
     $level = isset($_SESSION['level']) ? $_SESSION['level'] : false;
-    $keranjang = isset($_SESSION['keranjang']) ? $_SESSION['keranjang'] : false;
+    $keranjang = isset($_SESSION['keranjang']) ? $_SESSION['keranjang'] : array();
     $totalBarang = count($keranjang);
 
 ?>
@@ -16,6 +18,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="<?php echo BASE_URL."js/jquery-3.5.1.min.js"; ?>"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL."css/bootstrap/bootstrap.min.css"; ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL."css/style.css"; ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,14 +30,14 @@
                 <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
                     <div class="container">
                         <a class="navbar-brand" href="<?php echo BASE_URL."index.php"; ?>">Megaltoid</a>
-                        <a class="nav-item mr-auto ml-2 border-left pl-3" href="<?php echo BASE_URL."index.php?page=keranjang"; ?>">
-                            <img src="<?php echo BASE_URL."./images/png/put-in-cart.png"; ?>" width=30px alt="cart" id="button-keranjang">
+                        <div class='mr-auto border-left ml-2 pl-3'>
+                            <a class="nav-item mr-auto" href="<?php echo BASE_URL."index.php?page=keranjang"; ?>">
+                                <img src="<?php echo BASE_URL."./images/png/put-in-cart.png"; ?>" width=30px alt="cart" id="button-keranjang">
+                            </a>
                             <?php
-                                if($totalBarang != 0){
-                                    echo "<span class='total-barang'>$totalBarang</span>";
-                                }
+                                echo "<span class='badge badge-pill badge-dark position-relative' style='right: 15px; top: 10px;'>$totalBarang</span>";
                             ?>
-                        </a>
+                        </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -58,7 +61,6 @@
                                             <li class='nav-item'>
                                             <a class='nav-link' href='".BASE_URL."index.php?page=register'>Register</a>
                                             </li>";
-                                            
                                     }
                                 ?>
                             </ul>
@@ -68,7 +70,7 @@
             </header>
 
             <main>
-                <div id="content">
+                <div class="container my-3">
                     <?php
                         $filename = "$page.php";
 
@@ -89,8 +91,6 @@
                 </nav>
             </footer>
         </div>
-
-        <script src="<?php echo BASE_URL."js/jquery-3.4.1.slim.min.js"; ?>"></script>
         <script src="<?php echo BASE_URL."js/bootstrap.bundle.min.js"; ?>"></script>
     </body>
 

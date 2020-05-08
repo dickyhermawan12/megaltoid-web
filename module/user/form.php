@@ -1,6 +1,6 @@
 <?php
       
-    $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : "";
+  $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : "";
       
 	$button = "Update";
 	$queryUser = mysqli_query($koneksi, "SELECT * FROM user WHERE user_id='$user_id'");

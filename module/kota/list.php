@@ -19,21 +19,21 @@
 				<th scope='col'>Action</th>
                 </tr>
 			 </thead>";
-				 
-			$no = 1;
-			while($rowKota=mysqli_fetch_assoc($queryKota)){
-				echo "<tr>
-					<th scope='row'>$no</td>
-                    <td>$rowKota[kota]</td>
-                    <td>".rupiah($rowKota['tarif'])."</td>
-                    <td>$rowKota[status]</td>
-					<td>
-						<a class='tombol-action' href='".BASE_URL."index.php?page=my_profile&module=kota&action=form&kota_id=$rowKota[kota_id]'>Edit</a>
-					</td>
-                  </tr>";
-				
-				$no++;
-			}
+		echo "<tbody>";
+		$no = 1;
+		while($rowKota=mysqli_fetch_assoc($queryKota)){
+			echo "<tr>
+				<th scope='row'>$no</td>
+				<td>$rowKota[kota]</td>
+				<td>".rupiah($rowKota['tarif'])."</td>
+				<td>$rowKota[status]</td>
+				<td>
+					<a class='tombol-action' href='".BASE_URL."index.php?page=my_profile&module=kota&action=form&kota_id=$rowKota[kota_id]'>Edit</a>
+				</td>
+				</tr>";
+			
+			$no++;
+		}
 		
 		echo "</tbody>";
 		echo "</table>";

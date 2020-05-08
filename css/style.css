@@ -20,4 +20,10 @@
     #container-user-akses {
         max-width: 80%;
     }
+    .btn {
+        font-size: 12px;
+    }
+    .form-control {
+        font-size: 11px;
+    }
 }
