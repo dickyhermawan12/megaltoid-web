@@ -8,6 +8,9 @@
     $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : false;
     $nama = isset($_SESSION['nama']) ? $_SESSION['nama'] : false;
     $level = isset($_SESSION['level']) ? $_SESSION['level'] : false;
+    $keranjang = isset($_SESSION['keranjang']) ? $_SESSION['keranjang'] : false;
+    $totalBarang = count($keranjang);
+
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +29,11 @@
                         <a class="navbar-brand" href="<?php echo BASE_URL."index.php"; ?>">Megaltoid</a>
                         <a class="nav-item mr-auto ml-2 border-left pl-3" href="<?php echo BASE_URL."index.php?page=keranjang"; ?>">
                             <img src="<?php echo BASE_URL."./images/png/put-in-cart.png"; ?>" width=30px alt="cart" id="button-keranjang">
+                            <?php
+                                if($totalBarang != 0){
+                                    echo "<span class='total-barang'>$totalBarang</span>";
+                                }
+                            ?>
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
