@@ -14,49 +14,10 @@
 }
 
 @media (max-width: 767.98px) {
+    body{
+        font-size: 12px;
+    }
     #container-user-akses {
         max-width: 80%;
     }
-}
-
-#detail-barang {
-    background: white;
-    padding: 15px;
-}
-
-#detail-barang #frame-gambar {
-    background: white;
-    padding: 20px;
-}
-
-#detail-barang #frame-gambar img {
-    display: block;
-    margin: 0px auto;
-}
-
-#detail-barang #frame-harga{
-    margin: 15px;
-}
-
-#detail-barang #frame-harga span{
-    font-size: 35px;
-    font-weight: bold;
-    color: #dc3545;
-}
-
-#detail-barang #frame-harga a{
-    color: #dc3545;
-    text-decoration: none;
-    background: azure;
-    padding: 5px 10px;
-    float: right;
-    border-radius: 3px;
-}
-
-#detail-barang #frame-harga a:hover{
-    background : orange;
-}
-
-#detail-barang #keterangan{
-    margin : 20px 0px;
 }

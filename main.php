@@ -44,12 +44,12 @@
 </div>
 
 <div class="container my-3">
-    <div class="row">
+    <div class="row justify-content-center">
         <?php
             echo kategori($kategori_id);
         ?>
 
-        <div class="col-9">
+        <div class="col-sm-9">
             <?php
 				
 				if($kategori_id){
@@ -74,7 +74,7 @@
                                 </a>
                                 <div class='card-body'>";
                                     if($row['stok']>1){
-                                        $stringBrg .= "<a href='".BASE_URL."index.php?page=detail&barang_id=$row[barang_id]' class='btn btn-sm btn-success mb-2'>Ready Stock";
+                                        $stringBrg .= "<a href='".BASE_URL."index.php?page=detail&barang_id=$row[barang_id]' class='btn btn-sm btn-success disabled mb-2' style='opacity: 100%;'>Ready Stock";
                                     } else {
                                         $stringBrg .= "<a href='#' class='btn btn-sm btn-secondary mb-2 disabled'>Stock Empty";
                                     }
