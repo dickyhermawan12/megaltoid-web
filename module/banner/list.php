@@ -3,7 +3,7 @@
 <?php       
     $queryBanner = mysqli_query($koneksi, "SELECT * FROM banner ORDER BY banner_id DESC");
         
-    if(mysqli_num_rows($queryBanner) == 0){
+    if (mysqli_num_rows($queryBanner) == 0){
         echo "<div class='alert alert-warning' role='alert'>Saat ini belum ada banner di dalam database!</div>";
     } else {
         echo "<table class='table table-bordered'>";
@@ -16,24 +16,24 @@
                 <th scope='col'>Status</th>
 				<th scope='col'>Action</th>
                 </tr>
-             </thead>";
-             
+            </thead>
+            <tbody>";
+        
         $no=1;
-        echo "<tbody>";
-        while($rowBanner=mysqli_fetch_array($queryBanner)){
+        while($rowBanner = mysqli_fetch_array($queryBanner)){
             echo "<tr>
-					<th scope='row'>$no</td>
+					<th scope='row'>$no</th>
                     <td>$rowBanner[banner]</td>
                     <td><a target='blank' href='".BASE_URL."$rowBanner[link]'>$rowBanner[link]</a>
                     </td>
 					<td>$rowBanner[status]</td>
 					<td><a href='".BASE_URL."index.php?page=my_profile&module=banner&action=form&banner_id=$rowBanner[banner_id]'>Edit</a>
 					</td>
-                  </tr>";
-				  
+                </tr>";
+                
             $no++;
         }
-        echo "</tbody>";
-        echo "</table>";
+        echo "</tbody>
+            </table>";
     }
 ?>

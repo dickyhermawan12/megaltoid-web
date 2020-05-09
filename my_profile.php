@@ -30,9 +30,9 @@
         <div class="col-9 border">
             <?php
                 $file = "module/$module/$action.php";
-                if(file_exists($file)){
+                if (file_exists($file)){
                     include_once($file);
-                }else{
+                } else {
                     echo "<div class='alert alert-warning mt-3' role='alert'>Maaf, file tersebut tidak ada di dalam sistem!</div>";
                 }
 		    ?>

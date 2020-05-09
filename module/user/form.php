@@ -1,12 +1,12 @@
 <?php
-      
-  $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : "";
-      
+
+    $user_id = isset($_GET['user_id']) ? $_GET['user_id'] : "";
+
 	$button = "Update";
 	$queryUser = mysqli_query($koneksi, "SELECT * FROM user WHERE user_id='$user_id'");
-	 
-	$row=mysqli_fetch_array($queryUser);
-	  
+	
+	$row = mysqli_fetch_array($queryUser);
+	
 	$nama = $row["nama"];
 	$email = $row["email"];
 	$phone = $row["phone"];
@@ -41,40 +41,40 @@
 	</div>
 
 	<div class="row">
-      <legend class="col-form-label col-sm-1 pt-0">Level</legend>
-      <div class="col-sm-10">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="level" id="radioStatusAdmin" value="superadmin" <?php if($level == "superadmin"){ echo "checked='true'"; } ?>>
-          <label class="form-check-label" for="radioStatusAdmin">
-            Superadmin
-          </label>
+        <legend class="col-form-label col-sm-1 pt-0">Level</legend>
+        <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="level" id="radioStatusAdmin" value="superadmin" <?php if($level == "superadmin"){ echo "checked='true'"; } ?>>
+                <label class="form-check-label" for="radioStatusAdmin">
+                Superadmin
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="level" id="radioStatusCustomer" value="customer" <?php if($level == "customer"){ echo "checked='true'"; } ?>>
+                <label class="form-check-label" for="radioStatusCustomer">
+                Customer
+                </label>
+            </div>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="level" id="radioStatusCustomer" value="customer" <?php if($level == "customer"){ echo "checked='true'"; } ?>>
-          <label class="form-check-label" for="radioStatusCustomer">
-            Customer
-          </label>
-        </div>
-      </div>
     </div>
 
 	<div class="row">
-      <legend class="col-form-label col-sm-1 pt-0">Status</legend>
-      <div class="col-sm-10">
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="status" id="radioStatusOn" value="on" <?php if($status == "on" || $status == ""){ echo "checked='true'"; } ?>>
-          <label class="form-check-label" for="radioStatusOn">
-            On
-          </label>
+        <legend class="col-form-label col-sm-1 pt-0">Status</legend>
+        <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="status" id="radioStatusOn" value="on" <?php if($status == "on" || $status == ""){ echo "checked='true'"; } ?>>
+                <label class="form-check-label" for="radioStatusOn">
+                On
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="status" id="radioStatusOff" value="off" <?php if($status == "off"){ echo "checked='true'"; } ?>>
+                <label class="form-check-label" for="radioStatusOff">
+                Off
+                </label>
+            </div>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="status" id="radioStatusOff" value="off" <?php if($status == "off"){ echo "checked='true'"; } ?>>
-          <label class="form-check-label" for="radioStatusOff">
-            Off
-          </label>
-        </div>
-      </div>
     </div>
-	  
+    
 	<button type="submit" class="form-group btn btn-secondary" name="button" value="<?php echo $button; ?>"><?php echo $button; ?></button>
 </form>

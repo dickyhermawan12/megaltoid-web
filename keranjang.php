@@ -1,23 +1,22 @@
 <?php
 
-    if($totalBarang == 0){
+    if ($totalBarang == 0){
         echo "<div class='alert alert-warning' role='alert'>Saat ini belum ada data di dalam keranjang belanja anda</div>";
-    }else{
+    } else {
 
         $no=1;
-        echo "<table class='table table-bordered'>";
-
-        echo "<thead class='thead-dark'>
-                <tr>
-				<th scope='col'>No</th>
-                <th scope='col'>Image</th>
-                <th scope='col'>Nama Barang</th>
-				<th scope='col' style='width: 90px;'>Qty</th>
-                <th scope='col'>Harga Satuan</th>
-                <th scope='col'>Total</th>
-                </tr>
-             </thead>";
-        echo "<tbody>";
+        echo "<table class='table table-bordered'>
+                <thead class='thead-dark'>
+                    <tr>
+                        <th scope='col'>No</th>
+                        <th scope='col'>Image</th>
+                        <th scope='col'>Nama Barang</th>
+                        <th scope='col' style='min-width: 60px; max-width: 80px;'>Qty</th>
+                        <th scope='col'>Harga Satuan</th>
+                        <th scope='col'>Total</th>
+                    </tr>
+                </thead>
+                <tbody>";
         
         $subtotal = 0;
         foreach($keranjang AS $key => $value){
@@ -36,9 +35,9 @@
 
             echo "<tr class='text-center'>
                     <th scope='row'>$no</td>
-                    <td><img src='".BASE_URL."images/barang/$gambar' height='100px'></td>
+                    <td><img src='".BASE_URL."images/barang/$gambar' id='table-image'></td>
                     <td>$nama_barang</td>
-                    <td style='width: 90px;'><input class='update-quantity form-control text-right pr-1' type='text' name='$barang_id' value='$quantity'></td>
+                    <td style='min-width: 60px; max-width: 80px;'><input class='update-quantity form-control text-right pr-1' type='text' name='$barang_id' value='$quantity'></td>
                     <td class='text-left'>".rupiah($harga)."</td>
                     <td class='text-left'>
                         <p>".rupiah($total)."</p>
@@ -52,10 +51,9 @@
         echo "<tr>
                 <th class='bg-dark text-light text-center' scope='row' colspan='5'><b>Sub Total</b></td>
                 <td class='text-left'><b>".rupiah($subtotal)."</b></td>
-                </tr>";
-
-        echo "</tbody>";
-        echo "</table>";
+            </tr>
+        </tbody>
+        </table>";
     }
 
     echo "<div class='container'>
@@ -66,7 +64,7 @@
                 } else {
                     echo "<a href='".BASE_URL."index.php?page=data_pemesanan' class='btn btn-danger col-2'>Lanjut Pemesanan</a>";
                 }
-            echo "</div>
+        echo "</div>
         </div>";
 ?>
 

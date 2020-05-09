@@ -18,9 +18,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="<?php echo BASE_URL."js/jquery-3.5.1.min.js"; ?>"></script>
         <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL."css/bootstrap/bootstrap.min.css"; ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL."css/style.css"; ?>">
+
+        <script src="<?php echo BASE_URL."js/jquery-3.5.1.min.js"; ?>"></script>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>megaltoid | toko merch</title>
     </head>
@@ -46,7 +48,7 @@
                                 <?php
                                     if($user_id){
                                         echo "<li class='nav-item'>
-                                            <a class='nav-link disabled text-white mr-3' href='#'>Hi, <b>$nama</b></a>
+                                            <a class='nav-link disabled text-white mr-3' href='#' tabindex='-1'>Hi, <b>$nama</b></a>
                                             </li>
                                             <li class='nav-item'>
                                             <a class='nav-link' href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=list'>My Profile</a>
@@ -54,7 +56,7 @@
                                             <li class='nav-item'>
                                             <a class='nav-link' href='".BASE_URL."logout.php'>Logout</a>
                                             </li>";
-                                    }else{
+                                    } else {
                                         echo "<li class='nav-item'>
                                             <a class='nav-link' href='".BASE_URL."index.php?page=login'>Login</a>
                                             </li>
@@ -70,7 +72,7 @@
             </header>
 
             <main>
-                <div class="container my-3">
+                <div class="container my-3" style='min-height: 523px;'>
                     <?php
                         $filename = "$page.php";
 

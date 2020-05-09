@@ -7,7 +7,7 @@
                 if(mysqli_num_rows($queryBanner) == 0){
                     echo "<div class='col bg-danger' style='height: 500px; max-width: 860px'></div>";
                 } else {
-                    echo "<div id='carouselExampleControls' class='carousel slide col' data-ride='carousel' style='max-width: 860px;'>
+                    echo "<div id='main-carousel' class='carousel slide col' data-ride='carousel' style='max-width: 860px;'>
                     <div class='carousel-inner'>";
                     while($row=mysqli_fetch_assoc($queryBanner)){
                         if ($no==1){
@@ -26,11 +26,11 @@
                         $no++;
                     }
                     echo "</div>
-                            <a class='carousel-control-prev' href='#carouselExampleControls' role='button' data-slide='prev'>
+                            <a class='carousel-control-prev' href='#main-carousel' role='button' data-slide='prev'>
                                 <span class='carousel-control-prev-icon' aria-hidden='true'></span>
                                 <span class='sr-only'>Previous</span>
                             </a>
-                            <a class='carousel-control-next' href='#carouselExampleControls' role='button' data-slide='next'>
+                            <a class='carousel-control-next' href='#main-carousel' role='button' data-slide='next'>
                                 <span class='carousel-control-next-icon' aria-hidden='true'></span>
                                 <span class='sr-only'>Next</span>
                             </a>

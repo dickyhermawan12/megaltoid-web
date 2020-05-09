@@ -1,6 +1,6 @@
 <?php
 
-    if($user_id){
+    if ($user_id){
         header("location: ".BASE_URL);
     }
 
@@ -17,11 +17,11 @@
             $phone = isset($_GET['phone']) ? $_GET['phone'] : false;
             $alamat = isset($_GET['alamat']) ? $_GET['alamat'] : false;
 
-            if($notif == "require") {
+            if ($notif == "require"){
                 echo "<div class='alert alert-warning' role='alert'>Ada yang kurang, silakan lengkapi formnya dulu ya</div>";
-            } else if($notif == "password"){
+            } else if ($notif == "password"){
                 echo "<div class='alert alert-warning' role='alert'>Password yang anda masukkan tidak sama, masukkan lagi</div>";
-            } else if($notif == "email"){
+            } else if ($notif == "email"){
                 echo "<div class='alert alert-warning' role='alert'>Email yang anda masukkan sudah digunakan, masukkan lagi</div>";
             }
 
@@ -54,7 +54,7 @@
             <input type="password" class="form-control" id="inputRePassword" name="re_password">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-danger" value="register">Submit</button>
+            <button type="submit" class="btn btn-danger" value='submit'>Submit</button>
         </div>
 
     </form>
