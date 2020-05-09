@@ -20,7 +20,7 @@
         
         ?>
 
-        <h2 class="text-center">Log In</h2>
+        <h2 class="text-center red-accent-text">Log In</h2>
 
         <div class="form-group element-form">
             <label for="inputEmail">Alamat Email</label>
@@ -31,7 +31,7 @@
             <input type="password" class="form-control" id="inputPassword" name="password">
         </div>
         <div class="form-group element-form">
-            <button type="submit" class="btn btn-danger" value="register">Login</button>
+            <button type="submit" class="btn btn-secondary text-white" value="register">Login</button>
         </div>
 
     </form>

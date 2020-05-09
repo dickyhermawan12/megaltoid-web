@@ -10,7 +10,7 @@
         global $koneksi;
         
         $string = "<div class='col-sm-3 mb-4'>
-        <div class='list-group'>";
+        <div class='list-group shadow-sm'>";
             
         $query = mysqli_query($koneksi, "SELECT * FROM kategori WHERE status='on'");
 

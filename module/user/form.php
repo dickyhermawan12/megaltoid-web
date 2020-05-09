@@ -15,10 +15,10 @@
 	$level = $row["level"];
 ?>
 
-<h4 class="mt-3 text-center bg-secondary text-white py-3 rounded">Update User</h4>
+<h4 class="mt-3 text-center red-accent-light py-3 rounded">Update User</h4>
 
 
-<form action="<?php echo BASE_URL."module/user/action.php?user_id=$user_id"?>" method="POST" class="mt-3">
+<form action="<?php echo BASE_URL."module/user/action.php?user_id=$user_id"?>" method="POST" class="my-3">
 
 	<div class="form-group">
         <label for="inputNama">Nama Lengkap</label>

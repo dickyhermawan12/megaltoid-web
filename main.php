@@ -1,5 +1,5 @@
 <div class="container mt-4">
-    <div class="jumbotron jumbotron-fluid bg-dark py-0 rounded">
+    <div class="jumbotron jumbotron-fluid py-0 rounded shadow-sm" style="background-color: white;">
         <div class="row justify-content-center">
             <?php
                 $queryBanner = mysqli_query($koneksi, "SELECT * FROM banner ORDER BY banner_id DESC");
@@ -64,7 +64,7 @@
 					}
 					
                     echo "<div class='col mb-4'>
-                            <div class='card h-100'>
+                            <div class='card h-100 border shadow-sm'>
                                 <a href='".BASE_URL."index.php?page=detail&barang_id=$row[barang_id]'>
                                     <img src='".BASE_URL."images/barang/$row[gambar]' class='card-img-top' alt='$row[nama_barang]'>
                                 </a>
@@ -72,7 +72,7 @@
                                     if($row['stok']>1){
                                         echo "<a href='".BASE_URL."index.php?page=detail&barang_id=$row[barang_id]' class='btn btn-sm btn-success disabled mb-2' style='opacity: 100%;'>Ready Stock";
                                     } else {
-                                        echo "<a href='#' class='btn btn-sm btn-secondary mb-2 disabled'>Stock Empty";
+                                        echo "<a href='#' class='btn btn-sm btn-dark mb-2 disabled'>Stock Empty";
                                     }
                                     echo "</a>
                                     <a href='".BASE_URL."index.php?page=detail&barang_id=$row[barang_id]'>
@@ -94,3 +94,9 @@
     </div>
 
 </div>
+
+<script>
+    $( document ).ready(function() {
+        new WOW().init();
+    });
+</script>

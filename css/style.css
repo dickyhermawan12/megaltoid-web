@@ -1,8 +1,17 @@
-.list-group-item.active.red-accent {
-    z-index: 2;
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+.red-accent {
+    background-color: #d81b60 !important;
+    border-color: #d81b60 !important;
+}
+
+.red-accent-light {
+    background-color: #fce4ec !important;
+    border-color: #fce4ec !important;
+    color: #d81b60 !important;
+    font-weight: bold !important;
+}
+
+.red-accent-text {
+    color: #d81b60 !important;
 }
 
 #button-keranjang {
@@ -10,27 +19,27 @@
 }
 
 #container-user-akses {
-    max-width: 60%;
+    max-width: 60% !important;
 }
 
 #table-image {
-    max-width: 150px;
+    max-width: 150px !important;
 }
 
 @media (max-width: 767.98px) {
     body{
-        font-size: 12px;
+        font-size: 14px !important;
     }
     #container-user-akses {
-        max-width: 80%;
+        max-width: 80% !important;
     }
     .btn {
-        font-size: 12px;
+        font-size: 12px !important;
     }
     .form-control {
-        font-size: 11px;
+        font-size: 14px !important;
     }
     #table-image {
-        max-width: 80px;
+        max-width: 80px !important;
     }
 }

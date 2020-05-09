@@ -22,13 +22,13 @@
 
 <?php
 	if ($kota_id){
-		echo "<h4 class='mt-3 text-center bg-secondary text-white py-3 rounded'>Update Kota</h4>";
+		echo "<h4 class='mt-3 text-center red-accent-light py-3 rounded'>Update Kota</h4>";
 	} else {
-		echo "<h4 class='mt-3 text-center bg-secondary text-white py-3 rounded'>Tambah Kota</h4>";
+		echo "<h4 class='mt-3 text-center red-accent-light py-3 rounded'>Tambah Kota</h4>";
 	}
 ?>
 
-<form action="<?php echo BASE_URL."module/kota/action.php?kota_id=$kota_id"?>" method="post" class="mt-3">
+<form action="<?php echo BASE_URL."module/kota/action.php?kota_id=$kota_id"?>" method="post" class="my-3">
 
 	<div class="form-group">
         <label for="inputNamaKota">Nama Kota</label>

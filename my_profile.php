@@ -12,7 +12,7 @@
 <div class="container pt-4 pb-4" id="bg-page-profile">
     <div class="row justify-content-center" id="menu-profile">
         <div class="col-3">
-            <div class="list-group">
+            <div class="list-group shadow-sm">
                 <?php
                     if ($level == "superadmin"){
                 ?>
@@ -27,7 +27,7 @@
                 <a href="<?php echo BASE_URL."index.php?page=my_profile&module=pesanan&action=list"; ?>" class="list-group-item list-group-item-action <?php if($module == "pesanan"){ echo "active red-accent"; } ?>">Pesanan</a>
             </div>
         </div>
-        <div class="col-9 border">
+        <div class="col-9 border shadow-sm">
             <?php
                 $file = "module/$module/$action.php";
                 if (file_exists($file)){

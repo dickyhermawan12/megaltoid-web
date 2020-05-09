@@ -27,7 +27,7 @@
 
         ?>
 
-        <h2 class="text-center">Sign Up</h2>
+        <h2 class="text-center red-accent-text">Sign Up</h2>
 
         <div class="form-group">
             <label for="inputNama">Nama Lengkap</label>
@@ -54,7 +54,7 @@
             <input type="password" class="form-control" id="inputRePassword" name="re_password">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-danger" value='submit'>Submit</button>
+            <button type="submit" class="btn btn-secondary text-white" value='submit'>Submit</button>
         </div>
 
     </form>

@@ -1,22 +1,27 @@
 <?php
 
-    if ($totalBarang == 0){
-        echo "<div class='alert alert-warning' role='alert'>Saat ini belum ada data di dalam keranjang belanja anda</div>";
-    } else {
+    echo "<div class='container-fluid shadow-sm pb-3 d-flex flex-column justify-content-around'>";
 
+    if ($totalBarang == 0){
+        echo "<div class='col mt-3'>
+        <div class='alert alert-warning text-center' role='alert'>Saat ini belum ada data di dalam keranjang belanja anda</div>
+        </div>";
+    } else {
+        echo "<div class='container-fluid text-center pb-3'><h2>Keranjang Belanja</h2></div>";
         $no=1;
-        echo "<table class='table table-bordered'>
-                <thead class='thead-dark'>
-                    <tr>
-                        <th scope='col'>No</th>
-                        <th scope='col'>Image</th>
-                        <th scope='col'>Nama Barang</th>
-                        <th scope='col' style='min-width: 60px; max-width: 80px;'>Qty</th>
-                        <th scope='col'>Harga Satuan</th>
-                        <th scope='col'>Total</th>
-                    </tr>
-                </thead>
-                <tbody>";
+        echo "<div class='table-responsive my-3'>
+                <table class='table table-bordered'>
+                    <thead class='thead-dark'>
+                        <tr>
+                            <th scope='col'>No</th>
+                            <th scope='col'>Image</th>
+                            <th scope='col'>Nama Barang</th>
+                            <th scope='col' style='min-width: 60px; max-width: 80px;'>Qty</th>
+                            <th scope='col'>Harga Satuan</th>
+                            <th scope='col'>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>";
         
         $subtotal = 0;
         foreach($keranjang AS $key => $value){
@@ -53,18 +58,20 @@
                 <td class='text-left'><b>".rupiah($subtotal)."</b></td>
             </tr>
         </tbody>
-        </table>";
+        </table>
+        </div>";
     }
 
     echo "<div class='container'>
             <div class='row justify-content-between'>
-                <a href='".BASE_URL."index.php' class='btn btn-danger col-2'>Lanjut Belanja</a>";
+                <div class='col-3'><a href='".BASE_URL."index.php' class='btn btn-secondary text-white'>Lanjut Belanja</a></div>";
                 if($totalBarang == 0){
-                    echo "<a href='".BASE_URL."index.php?page=data_pemesanan' class='btn btn-danger disabled col-2'>Lanjut Pemesanan</a>";
+                    echo "<div class='col-3'><a href='".BASE_URL."index.php?page=data_pemesanan' class='btn btn-secondary text-white disabled' style='float: right;'>Lanjut Pemesanan</a></div>";
                 } else {
-                    echo "<a href='".BASE_URL."index.php?page=data_pemesanan' class='btn btn-danger col-2'>Lanjut Pemesanan</a>";
+                    echo "<div class='col-3'><a href='".BASE_URL."index.php?page=data_pemesanan' class='btn btn-secondary text-white' style='float: right;'>Lanjut Pemesanan</a></div>";
                 }
         echo "</div>
+        </div>
         </div>";
 ?>
 

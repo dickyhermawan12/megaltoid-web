@@ -19,13 +19,13 @@
 
 <?php
 	if($kategori_id){
-		echo "<h4 class='mt-3 text-center bg-secondary text-white py-3 rounded'>Update Kategori</h4>";
+		echo "<h4 class='mt-3 text-center red-accent-light py-3 rounded'>Update Kategori</h4>";
 	} else {
-		echo "<h4 class='mt-3 text-center bg-secondary text-white py-3 rounded'>Tambah Kategori</h4>";
+		echo "<h4 class='mt-3 text-center red-accent-light py-3 rounded'>Tambah Kategori</h4>";
 	}
 ?>
 
-<form action="<?php echo BASE_URL."module/kategori/action.php?kategori_id=$kategori_id"; ?>" method="POST" class="mt-3">
+<form action="<?php echo BASE_URL."module/kategori/action.php?kategori_id=$kategori_id"; ?>" method="POST" class="my-3">
 
     <div class="form-group">
         <label for="inputKategori">Kategori</label>

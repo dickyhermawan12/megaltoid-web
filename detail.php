@@ -6,10 +6,10 @@
 
 ?>
 
-<div class="container my-3 border">
+<div class="container my-3 border shadow-sm">
     <div class="row justify-content-center my-3">
-        <div class="col-sm-4">
-            <img src="<?php echo BASE_URL."images/barang/$row[gambar]"; ?>" class="w-100">
+        <div class="col-sm-4 d-flex align-items-center">
+            <img src="<?php echo BASE_URL."images/barang/$row[gambar]"; ?>" class="w-100 shadow-sm">
         </div>
         <div class="col-sm-7">
             <div class="row text-center border-bottom py-2">
@@ -21,7 +21,7 @@
                     if ($row['stok']>1){
                         echo "<a href='#' class='btn btn-sm btn-success mb-2 col disabled mr-3' style='opacity: 100%;'>Ready Stock</a>";
                     } else {
-                        echo "<a href='#' class='btn btn-sm btn-secondary mb-2 col disabled mr-3'>Stock Empty</a>";
+                        echo "<a href='#' class='btn btn-sm btn-dark text-white mb-2 col disabled mr-3'>Stock Empty</a>";
                     }
                 ?>
             </div>
@@ -29,18 +29,18 @@
                 <div class="col">
                     <?php
                         if($row['stok']>1){
-                            echo "<a href='".BASE_URL."tambah_keranjang.php?barang_id=$row[barang_id]' class='btn btn-danger'>Tambah ke Keranjang</a>";
+                            echo "<a href='".BASE_URL."tambah_keranjang.php?barang_id=$row[barang_id]' class='btn btn-secondary text-white'>Tambah ke Keranjang</a>";
                         } else {
-                            echo "<a href='".BASE_URL."tambah_keranjang.php?barang_id=$row[barang_id]' class='btn btn-danger disabled'>Tambah ke Keranjang</a>";
+                            echo "<a href='".BASE_URL."tambah_keranjang.php?barang_id=$row[barang_id]' class='btn btn-secondary text-white disabled'>Tambah ke Keranjang</a>";
                         }
                     ?>
                 </div>
             </div>
-            <div class="row pt-3">
-                <p class="col font-weight-bold" >Keterangan:</p>
-            </div>
-            <div class="row">
-                <p class="col"><?php echo $row['spesifikasi']; ?></p>
+            <div class="row pt-3 pb-0">
+                <div class="col px-3">
+                    <p class="font-weight-bold" >Keterangan:</p>
+                    <p><?php echo $row['spesifikasi']; ?></p>
+                </div>
             </div>
         </div>
     </div>

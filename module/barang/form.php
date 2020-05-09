@@ -30,13 +30,13 @@
 
 <?php
 	if($barang_id){
-		echo "<h4 class='mt-3 text-center bg-secondary text-white py-3 rounded'>Update Barang</h4>";
+		echo "<h4 class='mt-3 text-center red-accent-light py-3 rounded'>Update Barang</h4>";
 	} else {
-		echo "<h4 class='mt-3 text-center bg-secondary text-white py-3 rounded'>Tambah Barang</h4>";
+		echo "<h4 class='mt-3 text-center red-accent-light py-3 rounded'>Tambah Barang</h4>";
 	}
 ?>
 
-<form action="<?php echo BASE_URL."module/barang/action.php?barang_id=$barang_id"; ?>" method="POST" class="mt-3" enctype="multipart/form-data">
+<form action="<?php echo BASE_URL."module/barang/action.php?barang_id=$barang_id"; ?>" method="POST" class="my-3" enctype="multipart/form-data">
 
 	<div class="form-group">
 		<label>Kategori</label>
@@ -61,7 +61,7 @@
 
     <div class="form-group">
         <label for="inputSpesifikasi">Spesifikasi</label>
-        <textarea class="form-control" id="inputSpesifikasi" name="spesifikasi"><?php echo $spesifikasi; ?></textarea>
+        <textarea class="form-control" id="inputSpesifikasi" name="spesifikasi" rows="10" cols="80"><?php echo $spesifikasi; ?></textarea>
     </div>
 
     <div class="form-group">
@@ -101,3 +101,7 @@
 
 	<button type="submit" class="form-group btn btn-secondary" name="button" value="<?php echo $button; ?>"><?php echo $button; ?></button>
 </form>
+
+<script>
+    CKEDITOR.replace('spesifikasi');
+</script>

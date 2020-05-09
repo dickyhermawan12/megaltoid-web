@@ -7,18 +7,19 @@
 	if (mysqli_num_rows($query) == 0){
         echo "<div class='alert alert-warning' role='alert'>Saat ini belum ada barang di dalam tabel barang!</div>";
 	} else {
-		echo "<table class='table table-bordered'>
-				<thead class='thead-dark'>
-					<tr>
-						<th scope='col'>No</th>
-						<th scope='col'>Barang</th>
-						<th scope='col'>Kategori</th>
-						<th scope='col'>Harga</th>
-						<th scope='col'>Status</th>
-						<th scope='col'>Action</th>
-					</tr>
-				</thead>
-				<tbody>";
+		echo "<div class='table-responsive'>
+				<table class='table'>
+					<thead class='thead-dark'>
+						<tr>
+							<th scope='col'>No</th>
+							<th scope='col'>Barang</th>
+							<th scope='col'>Kategori</th>
+							<th scope='col'>Harga</th>
+							<th scope='col'>Status</th>
+							<th scope='col'>Action</th>
+						</tr>
+					</thead>
+					<tbody>";
 		$no=1;
 		while($row = mysqli_fetch_assoc($query)){
 			echo "<tr>
@@ -28,14 +29,15 @@
                     <td>".rupiah($row['harga'])."</td>
 					<td>$row[status]</td>
 					<td>
-						<a class='tombol-action' href='".BASE_URL."index.php?page=my_profile&module=barang&action=form&barang_id=$row[barang_id]'>Edit</a>
+						<a class='btn btn-sm btn-primary' href='".BASE_URL."index.php?page=my_profile&module=barang&action=form&barang_id=$row[barang_id]'>Edit</a>
 					</td>
 				</tr>";
 
             $no++;
 		}
 		echo "</tbody>
-			</table>";
+			</table>
+			</div>";
 	
 	}
 
