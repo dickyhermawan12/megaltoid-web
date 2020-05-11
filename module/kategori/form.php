@@ -52,6 +52,4 @@
 
     <button type="submit" class="form-group btn btn-secondary" name="button" value="<?php echo $button; ?>"><?php echo $button; ?></button>
 
-
-
 </form>

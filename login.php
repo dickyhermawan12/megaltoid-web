@@ -22,15 +22,15 @@
 
         <h2 class="text-center red-accent-text">Log In</h2>
 
-        <div class="form-group element-form">
+        <div class="form-group">
             <label for="inputEmail">Alamat Email</label>
             <input type="email" class="form-control" id="inputEmail" name="email">
         </div>
-        <div class="form-group element-form">
+        <div class="form-group">
             <label for="inputPassword">Password</label>
             <input type="password" class="form-control" id="inputPassword" name="password">
         </div>
-        <div class="form-group element-form">
+        <div class="form-group">
             <button type="submit" class="btn btn-secondary text-white" value="register">Login</button>
         </div>
 

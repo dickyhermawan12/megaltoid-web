@@ -19,6 +19,8 @@
 <html lang="en">
     <head>
         <title>megaltoid | toko merch</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
         <!-- Google Fonts Roboto -->
@@ -33,14 +35,15 @@
         <script src="<?php echo BASE_URL."js/jquery-3.5.1.min.js"; ?>"></script>
         <script src="<?php echo BASE_URL."ckeditor/ckeditor.js"; ?>"></script>
         
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </head>
     <body>
         <div class="maincontainer">
             <header>
                 <nav class="navbar navbar-expand-lg navbar-dark red-accent">
                     <div class="container">
-                        <a class="navbar-brand" href="<?php echo BASE_URL."index.php"; ?>">Megaltoid</a>
+                        <a class="navbar-brand" href="<?php echo BASE_URL."index.php"; ?>">
+                            <img src="<?php echo BASE_URL."images/megaltoid-logo.png"; ?>" height="20" alt="">
+                        </a>
                         <div class='mr-auto border-left ml-2 pl-3'>
                             <a class="nav-item mr-auto" href="<?php echo BASE_URL."index.php?page=keranjang"; ?>">
                                 <img src="<?php echo BASE_URL."./images/png/put-in-cart.png"; ?>" width=30px alt="cart" id="button-keranjang">

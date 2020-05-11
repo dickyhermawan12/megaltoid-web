@@ -27,9 +27,9 @@
 		
         mysqli_query($koneksi, "UPDATE banner SET banner='$banner',
                                         link='$link',
-                                        $edit_gambar
                                         status='$status'
-										$edit_gambar WHERE banner_id='$banner_id'");
+                                        $edit_gambar
+										WHERE banner_id='$banner_id'");
     }
      
      
