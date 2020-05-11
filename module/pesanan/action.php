@@ -22,7 +22,7 @@
 			mysqli_query($koneksi, "UPDATE pesanan SET status='1' WHERE pesanan_id='$pesanan_id'");
 		}
 		
-	}else if($button == "Edit Status"){
+	}else if($button == "edit_status"){
 		$status = $_POST["status"];
 		
 		mysqli_query($koneksi, "UPDATE pesanan SET status='$status' WHERE pesanan_id='$pesanan_id'");

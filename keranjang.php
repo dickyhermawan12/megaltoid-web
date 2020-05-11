@@ -27,14 +27,14 @@
         foreach($keranjang AS $key => $value){
             $barang_id = $key;
 
+            $query = mysqli_query($koneksi, "SELECT stok FROM barang WHERE barang_id='$barang_id'");
+            $row = mysqli_fetch_assoc($query);
+
             $nama_barang = $value["nama_barang"];
             $quantity = $value["quantity"];
             $gambar = $value["gambar"];
             $harga = $value["harga"];
 
-            if(empty($quantity)){
-                $quantity = 0;
-            }
             $total = $quantity * $harga;
             $subtotal = $subtotal + $total;
 
@@ -82,6 +82,12 @@
         $(".update-quantity").bind('keydown').on("input", function(e){
             var barang_id = $(this).attr("name");
             var value = $(this).val();
+
+            if (value == "" || value <= 0){
+                value = 1;
+            } else if (value > <?php echo $row["stok"]; ?>) {
+                value = <?php echo $row["stok"]; ?>;
+            }
             
             clearTimeout(timer);
             timer = setTimeout(function(){
