@@ -37,4 +37,57 @@
         </div>";		
 		
 		return $string;
-	}
+    }
+    
+    function admin_only($module, $level){
+        if($level != "superadmin"){
+            $admin_pages = array("kategori", "barang", "kota", "user", "banner");
+            if(in_array($module, $admin_pages)){
+                header("location: ".BASE_URL);
+            }
+        }
+    }
+
+    function pagination($query, $data_per_halaman, $pagination, $url){
+        global $koneksi;
+        $total_data = mysqli_num_rows($query);
+        $total_halaman = ceil($total_data / $data_per_halaman);
+
+        $batasPosisiNomor = 6;
+        $batasJumlahHalaman = 10;
+        $mulaiPagination = 1;
+        $batasAkhirPagination = $total_halaman;
+
+        echo "<ul class='pagination'>";
+
+        if($pagination > 1){
+            $prev = $pagination - 1;
+            echo "<li><a href='".BASE_URL."$url&pagination=$prev'><< Prev </a></li>";
+        }
+
+        if($total_halaman >= $batasJumlahHalaman){
+            if($pagination > $batasPosisiNomor){
+                $mulaiPagination = $pagination - ($batasPosisiNomor - 1);
+            }
+
+            $batasAkhirPagination = ($mulaiPagination - 1) + $batasJumlahHalaman;
+            if($batasAkhirPagination > $total_halaman){
+                $batasAkhirPagination = $total_halaman;
+            }
+        }
+
+        for($i = $mulaiPagination; $i <= $batasAkhirPagination; $i++){
+            if($pagination == $i){
+                echo "<li><a class='active' href='".BASE_URL."$url&pagination=$i'>$i</a></li>";
+            }else{
+                echo "<li><a href='".BASE_URL."$url&pagination=$i'>$i</a></li>";
+            }
+        }
+
+        if($pagination < $total_halaman){
+            $next = $pagination + 1;
+            echo "<li><a href='".BASE_URL."$url&pagination=$next'>Next >></a></li>";
+        }
+
+        echo "</ul>";
+    }

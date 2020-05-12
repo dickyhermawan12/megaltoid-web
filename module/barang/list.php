@@ -2,7 +2,11 @@
 
 <?php
 
-	$query = mysqli_query($koneksi, "SELECT barang.*, kategori.kategori FROM barang JOIN kategori USING(kategori_id)");
+	$pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
+	$data_per_halaman = 3;
+	$mulai_dari = ($pagination-1) * $data_per_halaman;
+
+	$query = mysqli_query($koneksi, "SELECT barang.*, kategori.kategori FROM barang JOIN kategori USING(kategori_id) LIMIT $mulai_dari, $data_per_halaman");
 	
 	if (mysqli_num_rows($query) == 0){
         echo "<div class='alert alert-warning' role='alert'>Saat ini belum ada barang di dalam tabel barang!</div>";
@@ -20,7 +24,7 @@
 						</tr>
 					</thead>
 					<tbody>";
-		$no=1;
+		$no = 1 + $mulai_dari;
 		while($row = mysqli_fetch_assoc($query)){
 			echo "<tr>
 					<th scope='row'>$no</th>
@@ -38,6 +42,9 @@
 		echo "</tbody>
 			</table>
 			</div>";
+
+			$queryHitungBarang = mysqli_query($koneksi, "SELECT * FROM barang");
+			pagination($queryHitungBarang, $data_per_halaman, $pagination, "index.php?page=my_profile&module=barang&action=list");
 	
 	}
 

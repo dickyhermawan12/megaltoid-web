@@ -1,7 +1,12 @@
 <a href="<?php echo BASE_URL."index.php?page=my_profile&module=banner&action=form"; ?>" class="btn btn-secondary my-3" role="button">+ Tambah Banner</a>
 
-<?php       
-    $queryBanner = mysqli_query($koneksi, "SELECT * FROM banner ORDER BY banner_id DESC");
+<?php 
+
+    $pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
+    $data_per_halaman = 3;
+    $mulai_dari = ($pagination-1) * $data_per_halaman;
+
+    $queryBanner = mysqli_query($koneksi, "SELECT * FROM banner ORDER BY banner_id DESC LIMIT $mulai_dari, $data_per_halaman");
         
     if (mysqli_num_rows($queryBanner) == 0){
         echo "<div class='alert alert-warning' role='alert'>Saat ini belum ada banner di dalam database!</div>";
@@ -19,7 +24,7 @@
                     </thead>
                     <tbody>";
         
-        $no=1;
+        $no = 1 + $mulai_dari;
         while($rowBanner = mysqli_fetch_array($queryBanner)){
             echo "<tr>
 					<th scope='row'>$no</th>
@@ -36,5 +41,8 @@
         echo "</tbody>
             </table>
             </div>";
+
+            $queryHitungBanner = mysqli_query($koneksi, "SELECT * FROM banner");
+			pagination($queryHitungBanner, $data_per_halaman, $pagination, "index.php?page=my_profile&module=banner&action=list");
     }
 ?>

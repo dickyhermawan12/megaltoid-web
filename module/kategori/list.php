@@ -2,7 +2,11 @@
 
 <?php  
 
-    $queryKategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+    $pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
+    $data_per_halaman = 3;
+    $mulai_dari = ($pagination-1) * $data_per_halaman;
+
+    $queryKategori = mysqli_query($koneksi, "SELECT * FROM kategori LIMIT $mulai_dari, $data_per_halaman");
 
     if (mysqli_num_rows($queryKategori) == 0){
         echo "<div class='alert alert-warning' role='alert'>Saat ini belum ada nama kategori di dalam tabel kategori!</div>";
@@ -18,7 +22,7 @@
                         </tr>
                     </thead>
                     <tbody>";
-        $no=1;
+        $no=  1 + $mulai_dari;
         while($rowKategori = mysqli_fetch_assoc($queryKategori)){
             echo "<tr>
 					<th scope='row'>$no</th>
@@ -35,6 +39,10 @@
         echo "</tbody>
             </table>
             </div>";
+
+        $queryHitungKategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+        pagination($queryHitungKategori, $data_per_halaman, $pagination, "index.php?page=my_profile&module=kategori&action=list");
+
     }
 
 ?>

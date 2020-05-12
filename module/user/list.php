@@ -1,4 +1,9 @@
 <?php
+
+    $pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
+    $data_per_halaman = 3;
+    $mulai_dari = ($pagination-1) * $data_per_halaman;
+
     $queryAdmin = mysqli_query($koneksi, "SELECT * FROM user ORDER BY nama ASC");
     
     if (mysqli_num_rows($queryAdmin) == 0){
@@ -18,7 +23,7 @@
                         </tr>
                     </thead>
                     <tbody>";
-        $no=1;
+        $no=1 + $mulai_dari;
 		while($rowUser = mysqli_fetch_assoc($queryAdmin)){
 			echo "<tr>
 					<th scope='row'>$no</th>
@@ -37,5 +42,8 @@
         echo "</tbody>
             </table>
             </div>";
+
+            $queryHitungUser = mysqli_query($koneksi, "SELECT * FROM user");
+			pagination($queryHitungUser, $data_per_halaman, $pagination, "index.php?page=my_profile&module=user&action=list");
     }
 ?>
