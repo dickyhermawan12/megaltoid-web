@@ -7,6 +7,9 @@
     } else {
         header("location: ".BASE_URL."index.php?page=login");
     }
+
+    admin_only($module, $level)
+
 ?>
 
 <div class="container pt-4 pb-4" id="bg-page-profile">
