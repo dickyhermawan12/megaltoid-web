@@ -3,7 +3,7 @@
     include_once("../../function/koneksi.php");
     include_once("../../function/helper.php");
 
-    admin_only("kategori", $level)
+    admin_only("kategori", $level);
 
     $kategori = $_POST['kategori'];
     $status = $_POST['status'];

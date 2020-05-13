@@ -3,7 +3,7 @@
 <?php 
 
     $pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
-    $data_per_halaman = 3;
+    $data_per_halaman = 5;
     $mulai_dari = ($pagination-1) * $data_per_halaman;
 
     $queryBanner = mysqli_query($koneksi, "SELECT * FROM banner ORDER BY banner_id DESC LIMIT $mulai_dari, $data_per_halaman");

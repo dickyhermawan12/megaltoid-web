@@ -3,7 +3,7 @@
 	include_once("../../function/koneksi.php");
 	include_once("../../function/helper.php");
 
-	admin_only("pesanan", $level)
+	admin_only("pesanan", $level);
 	
 	session_start();
 	

@@ -49,12 +49,12 @@
 
         <div class="col-sm-9">
             <?php
-				
+            
 				if($kategori_id){
-					$query = mysqli_query($koneksi, "SELECT * FROM barang WHERE status='on' AND kategori_id='$kategori_id' ORDER BY rand() DESC LIMIT 9");
-				}else{
-					$query = mysqli_query($koneksi, "SELECT * FROM barang WHERE status='on' ORDER BY rand() DESC LIMIT 9");
+					$kategori_id = "AND kategori_id='$kategori_id'";
 				}
+
+                $query = mysqli_query($koneksi, "SELECT * FROM barang WHERE status='on' $kategori_id ORDER BY rand() DESC LIMIT 9");
 				
 				$no=1;
 				while($row=mysqli_fetch_assoc($query)){

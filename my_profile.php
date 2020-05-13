@@ -8,7 +8,7 @@
         header("location: ".BASE_URL."index.php?page=login");
     }
 
-    admin_only($module, $level)
+    admin_only($module, $level);
 
 ?>
 

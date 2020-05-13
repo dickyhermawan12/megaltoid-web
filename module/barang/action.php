@@ -2,7 +2,7 @@
     include("../../function/koneksi.php");   
 	include("../../function/helper.php");   
 	
-	admin_only("barang", $level)
+	admin_only("barang", $level);
      
     $nama_barang = $_POST['nama_barang'];
     $kategori_id = $_POST['kategori_id'];
