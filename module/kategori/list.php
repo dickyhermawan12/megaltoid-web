@@ -30,7 +30,8 @@
 					<td>$rowKategori[status]</td>
                     <td>
                         <a class='btn btn-sm btn-primary' href='".BASE_URL."index.php?page=my_profile&module=kategori&action=form&kategori_id=$rowKategori[kategori_id]'>Edit</a>
-					</td>
+                        <a class='btn btn-sm btn-primary' href='".BASE_URL."module/kategori/action.php?button=Delete&kategori_id=$rowKategori[kategori_id]'>Delete</a>
+                    </td>
                 </tr>";
 
             $no++;
