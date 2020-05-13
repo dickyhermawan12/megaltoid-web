@@ -49,14 +49,18 @@
 
         <div class="col-sm-9">
             <?php
-            
+
+                $data_per_halaman = 6;
+                $mulai_dari = ($pagination-1) * $data_per_halaman;
+
 				if($kategori_id){
 					$kategori_id = "AND kategori_id='$kategori_id'";
 				}
 
-                $query = mysqli_query($koneksi, "SELECT * FROM barang WHERE status='on' $kategori_id ORDER BY rand() DESC LIMIT 9");
+                $query = mysqli_query($koneksi, "SELECT * FROM barang WHERE status='on' $kategori_id ORDER BY barang_id DESC LIMIT $mulai_dari, $data_per_halaman");
 				
-				$no=1;
+                $no=1;
+                echo "<div>";
 				while($row=mysqli_fetch_assoc($query)){
 
 					if($no%3==1){
@@ -87,7 +91,14 @@
                         echo "</div>";
                     }
                     $no++;
-				}
+                }
+                echo "</div>";
+
+                echo "<div>";
+                $queryHitungCard = mysqli_query($koneksi, "SELECT * FROM barang WHERE status='on'");
+                pagination($queryHitungCard, $data_per_halaman, $pagination, "index.php");
+                echo "</div>";
+
 			?>
 
         </div>

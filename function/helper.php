@@ -58,12 +58,18 @@
         $mulaiPagination = 1;
         $batasAkhirPagination = $total_halaman;
 
+        if ($url=="index.php"){
+            $modurl = "$url?pagination";
+        } else {
+            $modurl = "$url&pagination";
+        }
+
 
         echo "<ul class='pagination pg-red-accent'>";
 
         if($pagination > 1){
             $prev = $pagination - 1;
-            echo "<li class='page-item'><a class='page-link' href='".BASE_URL."$url&pagination=$prev'> Previous </a></li>";
+            echo "<li class='page-item'><a class='page-link' href='".BASE_URL."$modurl=$prev'> Previous </a></li>";
         }
 
         if($total_halaman >= $batasJumlahHalaman){
@@ -79,15 +85,15 @@
 
         for($i = $mulaiPagination; $i <= $batasAkhirPagination; $i++){
             if($pagination == $i){
-                echo "<li class='page-item active'><a class='page-link' href='".BASE_URL."$url&pagination=$i'>$i<span class='sr-only'>(current)</span></a></li>";
+                echo "<li class='page-item active'><a class='page-link' href='".BASE_URL."$modurl=$i'>$i<span class='sr-only'>(current)</span></a></li>";
             }else{
-                echo "<li class='page-item'><a class='page-link' href='".BASE_URL."$url&pagination=$i'>$i</a></li>";
+                echo "<li class='page-item'><a class='page-link' href='".BASE_URL."$modurl=$i'>$i</a></li>";
             }
         }
 
         if($pagination < $total_halaman){
             $next = $pagination + 1;
-            echo "<li class='page-item'><a class='page-link' href='".BASE_URL."$url&pagination=$next'> Next </a></li>";
+            echo "<li class='page-item'><a class='page-link' href='".BASE_URL."$modurl=$next'> Next </a></li>";
         }
 
         echo "</ul>";

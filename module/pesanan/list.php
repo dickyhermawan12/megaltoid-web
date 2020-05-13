@@ -22,7 +22,7 @@
 							<th scope='col'>No Pesanan</th>
 							<th scope='col'>Status</th>
 							<th scope='col'>Nama</th>
-							<th scope='col'>Action</th>
+							<th scope='col' style='max-width: 160px;'>Action</th>
 						</tr>
 					</thead>
 					<tbody>";
@@ -31,7 +31,7 @@
 		$no = 1 + $mulai_dari;
 		while($row=mysqli_fetch_assoc($queryPesanan)){
 			if($level == "superadmin"){
-				$adminButton = "<a class='tombol-action' href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=status&pesanan_id=$row[pesanan_id]'>Update Status</a>";
+				$adminButton = "<a class='btn btn-sm btn-primary' href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=status&pesanan_id=$row[pesanan_id]'>Update Status</a>";
 			}
 		
             $status = $row['status'];
@@ -40,8 +40,8 @@
 					<th scope='row'>$row[pesanan_id]</th>
 					<td>$arrayStatusPesanan[$status]</td>
 					<td>$row[nama]</td>
-					<td>
-						<a class='tombol-action' href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=detail&pesanan_id=$row[pesanan_id]'>Detail Pesanan</a>
+					<td style='max-width: 160px;'>
+						<a class='btn btn-sm btn-pink' href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=detail&pesanan_id=$row[pesanan_id]'>Detail Pesanan</a>
                         $adminButton
                     </td>
 				</tr>";
