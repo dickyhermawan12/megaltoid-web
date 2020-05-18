@@ -8,21 +8,18 @@
                     echo "<div class='col bg-danger' style='height: 500px; max-width: 860px'></div>";
                 } else {
                     echo "<div id='main-carousel' class='carousel slide col' data-ride='carousel' style='max-width: 860px;'>
-                    <div class='carousel-inner'>";
+                    <div class='carousel-inner'>
+                        <div class='carousel-item active overflow-hidden'>
+                            <a href='#'>
+                                <img src='".BASE_URL."images/slide/b_megaltoid.jpg' class='d-block w-100' alt='mainbanner' style='height: 470px;'>
+                            </a>
+                            </div>";
                     while($row=mysqli_fetch_assoc($queryBanner)){
-                        if ($no==1){
-                            echo "<div class='carousel-item active'>
-                            <a href='".BASE_URL."$row[link]'>
-                                <img src='".BASE_URL."images/slide/$row[gambar]' class='d-block w-100' alt='$row[banner]'>
-                            </a>
-                            </div>";
-                        } else {
-                            echo "<div class='carousel-item'>
-                            <a href='".BASE_URL."$row[link]'>
-                                <img src='".BASE_URL."images/slide/$row[gambar]' class='d-block w-100' alt='$row[banner]'>
-                            </a>
-                            </div>";
-                        }
+                        echo "<div class='carousel-item overflow-hidden'>
+                        <a href='".BASE_URL."$row[link]'>
+                            <img src='".BASE_URL."images/slide/$row[gambar]' class='d-block w-100' alt='$row[banner]' style='height: 470px;'>
+                        </a>
+                        </div>";
                         $no++;
                     }
                     echo "</div>
@@ -99,7 +96,7 @@
                     echo "</div>";
     
                     echo "<div>";
-                    $queryHitungCard = mysqli_query($koneksi, "SELECT * FROM barang WHERE status='on'");
+                    $queryHitungCard = mysqli_query($koneksi, "SELECT * FROM barang WHERE status='on' $kategori_id");
                     pagination($queryHitungCard, $data_per_halaman, $pagination, "index.php");
                     echo "</div>";
                 }
