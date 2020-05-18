@@ -1,5 +1,7 @@
 <?php
 
+    $current_user = $_SESSION['user_id'];
+
     $pagination = isset($_GET["pagination"]) ? $_GET["pagination"] : 1;
     $data_per_halaman = 3;
     $mulai_dari = ($pagination-1) * $data_per_halaman;
@@ -33,8 +35,13 @@
                     <td>$rowUser[level]</td>
                     <td>$rowUser[status]</td>
 					<td>
-						<a class='btn btn-sm btn-primary' href='".BASE_URL."index.php?page=my_profile&module=user&action=form&user_id=$rowUser[user_id]'>Edit</a>
-					</td>
+                        <a class='btn btn-sm btn-cyan mr-2' href='".BASE_URL."index.php?page=my_profile&module=user&action=form&user_id=$rowUser[user_id]'>Edit</a>";
+            if ($rowUser['user_id'] == $current_user){
+                echo "<a class='btn btn-sm btn-danger disabled' href='".BASE_URL."module/user/action.php?button=Delete&user_id=$rowUser[user_id]'>Delete</a>";
+            } else {
+                echo "<a class='btn btn-sm btn-danger' href='".BASE_URL."module/user/action.php?button=Delete&user_id=$rowUser[user_id]'>Delete</a>";
+            }
+					echo "</td>
                 </tr>";
 
             $no++;

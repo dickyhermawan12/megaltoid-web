@@ -105,10 +105,40 @@
 		</tbody>
 	</table>
 	
-	<div>
-		<p>Silakan Lakukan pembayaran ke Bank XXX<br/>
-		   Nomor Account : 1234-5678 (A/N MegaltoidShop).<br/>
-		   Setelah melakukan pembayaran silahkan lakukan konfirmasi pembayaran 
-		   <a href="<?php echo BASE_URL."index.php?page=my_profile&module=pesanan&action=konfirmasi_pembayaran&pesanan_id=$pesanan_id"?>">Disini</a>.
-		</p>
-	</div>
+	<?php
+		$row = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT pesanan_id, status FROM pesanan WHERE pesanan_id=$pesanan_id"));
+		
+		if($row['status'] == 0) {
+			echo "<div class='alert alert-info' role='alert'>
+				<h4 class='alert-heading'>One More Step!</h4>
+				<hr>
+				<p>Lakukan pembayaran ke rekening bank XXX<br>
+					<strong>Nomor Account: 0101-1919-3131</strong>
+				</p>
+				<hr>
+				<p class='mb-0'>Setelah selesai, silakan lakukan konfirmasi pada tombol di bawah ini.</p>
+				<a class='btn btn-secondary' href='".BASE_URL."index.php?page=my_profile&module=pesanan&action=konfirmasi_pembayaran&pesanan_id=$pesanan_id'>Saya telah melakukan pembayaran</a>.
+			</div>";
+		} elseif($row['status'] == 1){
+			echo "<div class='alert alert-info' role='alert'>
+				<h4 class='alert-heading'>Pembayaran sedang di validasi!</h4>
+				<hr>
+				<p>Saat ini tim Megaltoid sedang melakukan pengecekan pembayaran Anda. Proses ini tidak akan memakan waktu lebih dari satu hari.<br>
+				Segera setelah pembayaran Anda divalidasi, kami akan segera mengirimkan pesanan Anda ke tujuan yang telah Anda tentukan.
+				</p>
+				</div>";
+		} elseif($row['status'] == 2) {
+			echo "<div class='alert alert-success' role='alert'>
+				<h4 class='alert-heading'>Pembayaran Anda telah diterima!</h4>
+				<hr>
+				<p>Terima kasih atas kepercayaan Anda. Silakan tunggu hingga barang Anda sampai ke alamat yang Anda cantumkan.</p>
+				</div>";
+		} else {
+			echo "<div class='alert alert-danger' role='alert'>
+				<h4 class='alert-heading'>Pembayaran Anda ditolak!</h4>
+				<hr>
+				<p>Mohon maaf, kami tidak dapat memvalidasi data pembayaran Anda. Kami telah memberikan informasi kegagalan pembayaran ini pada email Anda beserta alasannya.</p>
+				</div>";
+		}
+		
+

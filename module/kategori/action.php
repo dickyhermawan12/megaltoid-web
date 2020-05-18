@@ -12,7 +12,7 @@
     $status = isset($_POST['status']) ? $_POST['status'] : "";
 
     if($button == "Add"){
-    mysqli_query($koneksi, "INSERT INTO kategori (kategori, status) VALUES ('$kategori', '$status')");
+        mysqli_query($koneksi, "INSERT INTO kategori (kategori, status) VALUES ('$kategori', '$status')");
     }else if($button == "Update"){
         mysqli_query($koneksi, "UPDATE kategori SET kategori='$kategori', status='$status' WHERE kategori_id='$kategori_id'");
     }else if($button == "Delete"){

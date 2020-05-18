@@ -1,4 +1,4 @@
-<a href="<?php echo BASE_URL."index.php?page=my_profile&module=kota&action=form"; ?>" class="btn btn-secondary my-3" role="button">+ Tambah Kota</a>
+<a href="<?php echo BASE_URL."index.php?page=my_profile&module=kota&action=form"; ?>" class="btn btn-indigo btn-sm my-3" role="button">+ Tambah Kota</a>
 
 <?php
 
@@ -31,7 +31,8 @@
 					<td>".rupiah($rowKota['tarif'])."</td>
 					<td>$rowKota[status]</td>
 					<td>
-						<a class='btn btn-sm btn-primary' href='".BASE_URL."index.php?page=my_profile&module=kota&action=form&kota_id=$rowKota[kota_id]'>Edit</a>
+						<a class='btn btn-sm btn-cyan' href='".BASE_URL."index.php?page=my_profile&module=kota&action=form&kota_id=$rowKota[kota_id]'>Edit</a>
+						<a class='btn btn-sm btn-danger' href='".BASE_URL."module/kota/action.php?button=Delete&kota_id=$rowKota[kota_id]'>Delete</a>
 					</td>
 				</tr>";
 			

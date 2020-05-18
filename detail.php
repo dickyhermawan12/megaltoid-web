@@ -13,17 +13,22 @@
         </div>
         <div class="col-sm-7">
             <div class="row text-center border-bottom py-2">
-                <h4 class="col"><?php echo $row['nama_barang']; ?><h3>
+                <h4 class="col"><?php echo $row['nama_barang']; ?></h4>
             </div>
             <div class="row mt-3 justify-content-around">
-                <h4 class="col-9 text-danger"><?php echo rupiah($row['harga']); ?></h4>
-                <?php
-                    if ($row['stok']>1){
-                        echo "<a href='#' class='btn btn-sm btn-success mb-2 col disabled mr-3' style='opacity: 100%;'>Ready Stock</a>";
-                    } else {
-                        echo "<a href='#' class='btn btn-sm btn-dark text-white mb-2 col disabled mr-3'>Stock Empty</a>";
-                    }
-                ?>
+                <div class="col-8">
+                    <h4 class="text-danger"><?php echo rupiah($row['harga']); ?></h4>
+                    <p class="font-small">Stok tersedia:<?php echo $row['stok']; ?></p>
+                </div>
+                <div class="col-4">
+                    <?php
+                        if ($row['stok']>1){
+                            echo "<a href='#' class='btn btn-sm btn-success mb-2 disabled mr-3 float-right' style='opacity: 100%;'>Ready Stock</a>";
+                        } else {
+                            echo "<a href='#' class='btn btn-sm btn-dark text-white mb-2 disabled mr-3 float-right'>Stock Empty</a>";
+                        }
+                    ?>
+                </div>
             </div>
             <div class="row py-3 border-bottom">
                 <div class="col">

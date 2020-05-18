@@ -1,4 +1,4 @@
-<a href="<?php echo BASE_URL."index.php?page=my_profile&module=kategori&action=form"; ?>" class="btn btn-secondary my-3" role="button">+ Tambah Kategori</a>
+<a href="<?php echo BASE_URL."index.php?page=my_profile&module=kategori&action=form"; ?>" class="btn btn-indigo btn-sm my-3" role="button">+ Tambah Kategori</a>
 
 <?php  
 
@@ -29,8 +29,8 @@
                     <td>$rowKategori[kategori]</td>
 					<td>$rowKategori[status]</td>
                     <td>
-                        <a class='btn btn-sm btn-primary' href='".BASE_URL."index.php?page=my_profile&module=kategori&action=form&kategori_id=$rowKategori[kategori_id]'>Edit</a>
-                        <a class='btn btn-sm btn-primary' href='".BASE_URL."module/kategori/action.php?button=Delete&kategori_id=$rowKategori[kategori_id]'>Delete</a>
+                        <a class='btn btn-sm btn-cyan' href='".BASE_URL."index.php?page=my_profile&module=kategori&action=form&kategori_id=$rowKategori[kategori_id]'>Edit</a>
+                        <a class='btn btn-sm btn-danger' href='".BASE_URL."module/kategori/action.php?button=Delete&kategori_id=$rowKategori[kategori_id]'>Delete</a>
                     </td>
                 </tr>";
 

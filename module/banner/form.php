@@ -3,6 +3,7 @@
 	$banner_id = isset($_GET['banner_id']) ? $_GET['banner_id'] : "";
 	
     $banner = "";
+    $barang_id = "";
     $link = "";
     $gambar = "";
 	$keterangan_gambar = "";
@@ -16,10 +17,11 @@
         $queryBanner = mysqli_query($koneksi, "SELECT * FROM banner WHERE banner_id='$banner_id'");
 		$row = mysqli_fetch_array($queryBanner);
 		
-		$banner = $row["banner"];
+        $banner = $row["banner"];
+        $barang_id = $row['barang_id'];
 		$link = $row["link"];
 		$gambar = "<img src='". BASE_URL."images/slide/$row[gambar]' style='width: 200px;vertical-align: middle;' />";
-		$keterangan_gambar = "(klik 'Pilih Gambar' hanya jika tidak ingin mengganti gambar)";
+		$keterangan_gambar = "(klik 'Pilih Gambar' untuk mengganti gambar baru)";
 		$status = $row["status"];
     }   
 ?>
@@ -32,17 +34,28 @@
 	}
 ?>
 
-<form action="<?php echo BASE_URL."module/banner/action.php?banner_id=$banner_id"?>" method="post" class="my-3" enctype="multipart/form-data">
+<form action="<?php echo BASE_URL."module/banner/action.php?banner_id=$banner_id"; ?>" method="POST" class="my-3" enctype="multipart/form-data">
 
 	<div class="form-group">
         <label for="inputBanner">Nama Banner</label>
         <input type="text" class="form-control" id="inputBanner" name="banner" value="<?php echo $banner; ?>">
 	</div>
-	
-	<div class="form-group">
-        <label for="inputLink">Link</label>
-        <input type="text" class="form-control" id="inputLink" name="link" value="<?php echo $link; ?>">
-	</div>
+
+    <div class="form-group">
+		<label>Barang</label>
+		<select class="form-control" name="barang_id">
+            <?php
+                $query = mysqli_query($koneksi, "SELECT barang_id, nama_barang FROM barang WHERE status='on' ORDER BY nama_barang ASC");
+                while ($row = mysqli_fetch_assoc($query)){
+                    if($kategori_id == $row['barang_id']){
+                        echo "<option value='$row[barang_id]' selected='true'>$row[nama_barang]</option>";
+                    }else{
+                        echo "<option value='$row[barang_id]'>$row[nama_barang]</option>";
+                    }
+                }
+            ?>
+        </select>
+    </div>
 	
 	<div class="form-group">
         <label for="inputGambar">Gambar <?php echo $keterangan_gambar; ?></label>

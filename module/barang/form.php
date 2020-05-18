@@ -23,7 +23,7 @@
         $stok = $row['stok'];
 		$status = $row['status'];
 		$button = "Update";
-        $gambar = "<img src='".BASE_URL."images/barang/$gambar' style='width: 200px;vertical-align: middle;' />";
+        $gambar = "<img src='".BASE_URL."images/barang/$gambar' style='width: 200px;vertical-align: middle;'>";
     }
     
 ?>

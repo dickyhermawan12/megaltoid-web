@@ -3,7 +3,12 @@
     include_once("function/koneksi.php");
     include_once("function/helper.php");
 
-    $level = "customer";
+    if (mysqli_num_rows(mysqli_query($koneksi, "SELECT * FROM user")) < 1){
+        $level = "superadmin";
+    } else {
+        $level = "customer";
+    }
+
     $status = "on";
     $nama_lengkap = $_POST['nama_lengkap'];
     $email = $_POST['email'];

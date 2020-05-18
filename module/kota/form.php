@@ -28,7 +28,7 @@
 	}
 ?>
 
-<form action="<?php echo BASE_URL."module/kota/action.php?kota_id=$kota_id"?>" method="post" class="my-3">
+<form action="<?php echo BASE_URL."module/kota/action.php?kota_id=$kota_id"; ?>" method="post" class="my-3">
 
 	<div class="form-group">
         <label for="inputNamaKota">Nama Kota</label>
